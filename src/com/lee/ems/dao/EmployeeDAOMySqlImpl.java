@@ -17,7 +17,7 @@ public class EmployeeDAOMySqlImpl implements IEmployeeDAO{
 	private PreparedStatement pst = null;
 	private ResultSet rs = null;
 	public static final String INS_COMMAND="INSERT INTO employee VALUES(?,?,?,?)";
-	public static final String UPDATE_COMMAND="UPDATE employee SET empname=?, designation=? daysattend=?,WHERE empid=?";
+	public static final String UPDATE_COMMAND="UPDATE employee SET empname=?, designation=?, dayattend=?, WHERE empid=?";
 	public static final String DELETE_COMMAND="DELETE FROM employee WHERE empid=?";
 	public static final String FIND_COMMAND="SELECT * FROM employee WHERE empid=?";
 	public static final String SELECT_ALL="SELECT * FROM employee";
@@ -121,7 +121,7 @@ public class EmployeeDAOMySqlImpl implements IEmployeeDAO{
 				findTemp = new Employee();
 				findTemp.setEmpName(rs.getString("empname"));
 				findTemp.setDesignation(rs.getString("designation"));
-				findTemp.setDaysAttended(rs.getInt("daysattended"));
+				findTemp.setDaysAttended(rs.getInt("dayattend"));
 				findTemp.setEmpid(e.getEmpid());
 			}
 		} catch (SQLException e1) {
@@ -154,7 +154,7 @@ public class EmployeeDAOMySqlImpl implements IEmployeeDAO{
 				selectAllTemp.setEmpid(rs.getInt("empid"));
 				selectAllTemp.setEmpName(rs.getNString("empname"));
 				selectAllTemp.setDesignation(rs.getString("designation"));
-				selectAllTemp.setDaysAttended(rs.getInt("daysattended"));
+				selectAllTemp.setDaysAttended(rs.getInt("dayattend"));
 				eList.add(selectAllTemp);
 			}
 		} catch (SQLException e) {
